@@ -39,4 +39,8 @@ public  boolean register(User u){
     return true;
 }
 
+    public List<User> getAll(){
+       return userMapper.selectAll();
+    }
+
 }

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2016/5/19.
  */
@@ -49,5 +51,10 @@ public class IndexController {
             return "注册失败";
     }
 
+    @RequestMapping("/getAll")
+    @ResponseBody
+    public List<User> getAll(){
+       return userService.getAll();
+    }
 
 }
