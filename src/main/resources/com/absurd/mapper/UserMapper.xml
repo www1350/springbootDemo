@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.absurd.mapper.UserMapper">
+    <select id="selectById" resultType="com.absurd.model.User">
+    select
+    uid id,
+    username,
+    password
+    from
+    t_user
+    where
+    id = #{id}
+</select>
+
+    <select id="selectByName" resultType="com.absurd.model.User">
+        select
+        uid id,
+        username,
+        password
+        from
+        t_user
+        where
+        username = #{username}
+    </select>
+    <select id="selectAll" resultType="com.absurd.model.User">
+ select
+        uid id,
+        username,
+        password
+        from
+        t_user
+    </select>
+    <select id="selectCount" resultType="int">
+        select
+        count(1)
+        from
+        t_user
+    </select>
+    <insert id="insert" useGeneratedKeys="true">
+        insert into t_user (username, password)
+        values (#{username}, #{password})
+    </insert>
+
+
+    </mapper>

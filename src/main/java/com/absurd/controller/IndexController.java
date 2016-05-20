@@ -1,5 +1,6 @@
 package com.absurd.controller;
 
+import com.absurd.model.User;
 import com.absurd.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -25,7 +26,7 @@ public class IndexController {
     String home() {
         return "Hello World!";
     }
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login")
     @ResponseBody
     public String login(@RequestParam String username,@RequestParam String password) {
         boolean islog = userService.login(username,password);
@@ -34,4 +35,19 @@ public class IndexController {
         else
             return "登录失败";
     }
+
+    @RequestMapping("/register")
+    @ResponseBody
+    public String register(@RequestParam String username,@RequestParam String password) {
+        User u = new User();
+        u.setUsername(username);
+        u.setPassword(password);
+        boolean isreg = userService.register(u);
+        if(isreg)
+            return "注册成功!欢迎："+username;
+        else
+            return "注册失败";
+    }
+
+
 }
