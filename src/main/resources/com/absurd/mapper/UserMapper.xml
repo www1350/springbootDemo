@@ -11,17 +11,17 @@
     where
     uid = #{id}
 </select>
-    <delete id="delete" parameterType="com.absurd.model.User">
-        update
-        t_user
-        set username = #{username},   password = #{password}
-        where
-        uid = #{id}
-    </delete >
-    <update id="update">
+    <delete id="delete" >
         delete
         from
         t_user
+        where
+        uid = #{id}
+    </delete >
+    <update id="update" parameterType="com.absurd.model.User">
+        update
+        t_user
+        set username = #{username},   password = #{password}
         where
         uid = #{id}
     </update >

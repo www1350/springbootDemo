@@ -59,7 +59,7 @@ public  boolean register(User u){
         if(existUser!=null) {
             existUser.setPassword( u.getPassword());
             userMapper.update(existUser);
-        }
+        }else
         userMapper.insert(u);
         return true;
     }
