@@ -53,13 +53,17 @@ dependencies {
   compile("mysql:mysql-connector-java:5.1.38")
   compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
   compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
+  compile group: 'org.springframework.boot', name: 'spring-boot-starter-websocket', version: "${springBootVersion}"
+
   compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.2.2'
   compile group: 'org.mybatis', name: 'mybatis', version: "${mybatisVersion}"
   compile group: 'org.mybatis', name: 'mybatis-ehcache', version: '1.0.0'
   compile group: 'com.alibaba', name: 'druid', version: '1.0.18'
+
   compile("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
   compile("com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
   compile("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
+
   compile group: 'io.springfox', name: 'springfox-swagger2', version: "${Swagger2Version}"
   compile group: 'io.springfox', name: 'springfox-swagger-ui', version: "${Swagger2Version}"
   compile group: 'io.springfox', name: 'springfox-staticdocs', version: "${Swagger2Version}"

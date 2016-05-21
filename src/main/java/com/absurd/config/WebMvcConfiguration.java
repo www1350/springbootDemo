@@ -26,14 +26,17 @@ import java.util.List;
 @Configuration
 @EnableWebMvc
 public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
-
+    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
+            "classpath:/META-INF/resources/", "classpath:/resources/",
+            "classpath:/static/", "classpath:/public/" };
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
 //    @Override
 //    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/api/**").addResourceLocations("classpath:/api/");
+//            registry.addResourceHandler("/**").addResourceLocations(
+//                    CLASSPATH_RESOURCE_LOCATIONS);
 //        super.addResourceHandlers(registry);
 //    }
 
