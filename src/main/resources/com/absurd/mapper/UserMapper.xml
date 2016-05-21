@@ -23,7 +23,7 @@
         from
         t_user
         where
-        id = #{id}
+        uid = #{id}
     </update >
 
     <select id="selectByName" resultType="com.absurd.model.User">

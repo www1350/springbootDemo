@@ -3,6 +3,7 @@ package com.absurd.controller;
 import com.absurd.model.User;
 import com.absurd.service.UserService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,14 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private UserService userService;
+
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public boolean deleteUser(@PathVariable("id") Long id){
+        return userService.deleteUser(id);
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<User> getUser(@PathVariable("id") Long id){
@@ -28,11 +37,8 @@ public class UserController {
         }
         return new ResponseEntity<User>(u,HttpStatus.OK);
     }
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
-    public boolean deleteUser(@PathVariable("id") Long id){
-        return userService.deleteUser(id);
-    }
+
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
     @ResponseBody
@@ -45,5 +51,6 @@ public class UserController {
     public boolean updateUser(@RequestBody User u){
         return userService.updateUser(u);
     }
+
 
 }
