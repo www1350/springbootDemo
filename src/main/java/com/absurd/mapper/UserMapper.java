@@ -14,4 +14,6 @@ public interface UserMapper {
     public  List<User> selectAll();
     public  int selectCount();
     public int insert(User u);
+    public int delete(Long id);
+ public boolean update(User u);
 }

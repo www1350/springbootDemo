@@ -43,4 +43,25 @@ public  boolean register(User u){
        return userMapper.selectAll();
     }
 
+
+    public User getUser(Long id){
+       return userMapper.selectById(id);
+    }
+
+    public boolean deleteUser(Long id){
+        userMapper.delete(id);
+        return true;
+    }
+
+    public boolean updateUser(User u){
+       User existUser = userMapper.selectByName(u.getUsername());
+        u.setPassword(DigestUtils.md5DigestAsHex(u.getPassword().getBytes()));
+        if(existUser!=null) {
+            existUser.setPassword( u.getPassword());
+            userMapper.update(existUser);
+        }
+        userMapper.insert(u);
+        return true;
+    }
+
 }

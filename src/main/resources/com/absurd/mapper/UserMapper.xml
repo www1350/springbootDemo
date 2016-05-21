@@ -9,8 +9,22 @@
     from
     t_user
     where
-    id = #{id}
+    uid = #{id}
 </select>
+    <delete id="delete" parameterType="com.absurd.model.User">
+        update
+        t_user
+        set username = #{username},   password = #{password}
+        where
+        uid = #{id}
+    </delete >
+    <update id="update">
+        delete
+        from
+        t_user
+        where
+        id = #{id}
+    </update >
 
     <select id="selectByName" resultType="com.absurd.model.User">
         select
